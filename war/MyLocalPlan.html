@@ -1,0 +1,78 @@
+<!doctype html>
+<!-- The DOCTYPE declaration above will set the    -->
+<!-- browser's rendering engine into               -->
+<!-- "Standards Mode". Replacing this declaration  -->
+<!-- with a "Quirks Mode" doctype may lead to some -->
+<!-- differences in layout.                        -->
+
+<html>
+  <head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <script type="text/javascript" language="javascript" src="mylocalplan/mylocalplan.nocache.js"></script>
+        <script type="text/javascript" language="javascript">
+        
+        var mapConfig = {
+                title: "MyLocalPlan",
+                //anchor: "GadgetPanel",
+                zoom : 7,
+                center : [-121.01, 38.22],
+                selectedBasemap:"149a9bb14d604bd18f4597b21c19fac7",
+                intersectLayers:[],
+                basemaps: [],
+                searchServices : [
+                   {
+                       url : "http://atlas.resources.ca.gov/ArcGIS/rest/services/Boundaries/Incorporated_Areas/MapServer/0",
+                       type : "query",
+                       parameter : "NAME",
+                       format : function(attr) {
+                           console.log(attr);
+                           return attr.NAME+" (City)";
+                       }
+                   },
+                   {
+                       url : "http://atlas.resources.ca.gov/ArcGIS/rest/services/Boundaries/CaCountyBound/MapServer/0",
+                       type : "query",
+                       parameter : "FEAT_NAME"
+                   },
+                   {
+                       url : "http://tasks.arcgis.com/ArcGIS/rest/services/WorldLocator/GeocodeServer",
+                       type : "geocoder"
+                   }
+                ],
+                datalayers: [
+            ],
+             
+            provider: {
+             icon: "",
+             popup: "MyLocalPlan",
+             url: ""
+            },
+            
+
+            geometryServer: "http://atlas.resources.ca.gov/arcgis/rest/services/Geometry/GeometryServer",
+            printServer:    "http://sampleserver6.arcgisonline.com/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task",
+            proxy : "http://node-ccc.ceres.ca.gov:4002/proxy"
+       }
+        
+        
+     </script>
+
+  </head>
+  <body class="claro" style="overflow:hidden">
+
+    <!-- OPTIONAL: include this if you want history support -->
+    <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
+    
+    <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
+    <noscript>
+      <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+        Your web browser must have JavaScript enabled
+        in order for this application to display correctly.
+      </div>
+    </noscript>
+
+
+  </body>
+</html>
